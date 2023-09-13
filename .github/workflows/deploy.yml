@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - main
-	repository_dispatch:
+  repository_dispatch:
     types:
       - publish-event
 
