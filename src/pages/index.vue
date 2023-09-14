@@ -9,7 +9,7 @@ const { data: posts } = await useAsyncData(
     const client = $createCtfClient()
     return await client.getEntries<TypeMarkdownBlogPostSkeleton>({
       content_type: 'markdownBlogPost',
-      order: ["-sys.createdAt"],
+      order: ["-fields.publishDate"],
     }).then(
       (entries) => {
         return entries.items
