@@ -15,7 +15,6 @@ const { data: post } = await useAsyncData(
   async () => {
     const client = $createCtfClient()
     return await client.withoutUnresolvableLinks.getEntries<TypeMarkdownBlogPostSkeleton>({
-    // return await client.getEntries<TypeMarkdownBlogPostSkeleton>({
       content_type: 'markdownBlogPost',
       'fields.slug': route.params.slug as string,
     }).then(
@@ -34,7 +33,7 @@ const { data: post } = await useAsyncData(
       <img v-if="post.fields.topImage.fields.file"
       :src="post.fields.topImage.fields.file.url" class="object-cover"/>
     </div> -->
-    <h1>{{ post.fields.title }}</h1>
+    <div class="border-black text-4xl font-mono font-semibold pt-5 pb-8">{{ post.fields.title }}</div>
     <div class="markdown">
       <article v-if="post.fields.body" v-html="marked.parse(post.fields.body)"></article>
     </div>

@@ -2,8 +2,6 @@
 export default defineNuxtConfig({
   ssr: true,
   runtimeConfig: {
-    // ctfBlogPostTypeID: "",
-    // ctfMarkdownBlogPostTypeID: "",
     ctfSpaceID: "",
     ctfCdaAccessToken: "",
     ctfCpaAccessToken: "",
