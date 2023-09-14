@@ -33,7 +33,8 @@ const { data: post } = await useAsyncData(
       <img v-if="post.fields.topImage.fields.file"
       :src="post.fields.topImage.fields.file.url" class="object-cover"/>
     </div> -->
-    <div class="border-black text-3xl sm:text-4xl font-mono font-semibold pt-5 pb-8">{{ post.fields.title }}</div>
+    <div class="border-black text-3xl sm:text-4xl font-mono font-semibold pt-5">{{ post.fields.title }}</div>
+    <time v-if="post.fields.publishDate" class="text-sm sm:text-base font-mono pb-8">{{ $formatDate(post.fields.publishDate) }}</time>
     <div class="markdown">
       <article v-if="post.fields.body" v-html="marked.parse(post.fields.body)"></article>
     </div>
