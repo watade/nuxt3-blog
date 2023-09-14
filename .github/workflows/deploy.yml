@@ -35,8 +35,8 @@ jobs:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
-          role-to-assume: "arn:aws:iam::697164119772:role/Nuxt3BlogDeployRole"
-          aws-region: ap-northeast-1
+          role-to-assume: ${{ secrets.DEPLOY_IAM_ROLE_NAME }}
+          aws-region: ${{ secrets.AWS_REGION }}
       - name: Copy Files to S3
         run: |
           aws s3 sync ./src/dist s3://${{ secrets.S3_BUCKET_NAME }}
