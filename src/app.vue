@@ -1,7 +1,7 @@
 <script setup lang="ts">
 useHead({
   bodyAttrs: {
-    class: 'bg-neutral-200'
+    class: 'bg-sky-200'
   }
 })
 </script>
