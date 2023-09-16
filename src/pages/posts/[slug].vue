@@ -11,7 +11,7 @@ const route = useRoute()
 const { $createCtfClient } = useNuxtApp()
 
 const { data: post } = await useAsyncData(
-  'post',
+  route.params.slug as string,
   async () => {
     const client = $createCtfClient()
     return await client.withoutUnresolvableLinks.getEntries<TypeMarkdownBlogPostSkeleton>({
