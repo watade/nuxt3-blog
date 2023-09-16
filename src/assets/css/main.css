@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer components {
+  .background {
+    background-color: #cecbba;
+  }
+
   .markdown {
     @apply leading-normal break-words;
   }
