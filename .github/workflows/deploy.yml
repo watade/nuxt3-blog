@@ -31,6 +31,7 @@ jobs:
         run: |
           cd ./src
           npm ci
+          npm run cf-generate-types
           npm run generate
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v3
