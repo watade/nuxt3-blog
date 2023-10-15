@@ -1,14 +1,9 @@
 import contentful from "contentful";
 import { createClient } from "contentful";
 
-type ctfConfig = {
-  space: string;
-  accessToken: string;
-};
-
 export default defineNuxtPlugin(() => {
   const runtimeConfig = useRuntimeConfig();
-  const config: ctfConfig = {
+  const config = {
     space: runtimeConfig.ctfSpaceID,
     accessToken: runtimeConfig.ctfCdaAccessToken,
   };

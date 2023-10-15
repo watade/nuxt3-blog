@@ -88,15 +88,19 @@
   }
 
   .markdown table {
-    @apply text-base border-black;
+    @apply text-xs sm:text-sm border-black overflow-x-auto my-1;
   }
 
   .markdown th {
-    @apply border  border-black py-1 px-3;
+    @apply border  border-black py-1 px-2;
   }
 
   .markdown td {
-    @apply border  border-black py-1 px-3;
+    @apply border  border-black py-0.5 px-1.5;
+  }
+
+  .markdown image {
+    @apply py-1 px-1.5;
   }
 
   /* Override pygments style background color. */
