@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer components {
+  .modal {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.85);
+  }
+
   .background {
     background-color: #e4e0d2;
   }
@@ -99,7 +109,7 @@
     @apply border  border-black py-0.5 px-1.5;
   }
 
-  .markdown image {
+  .markdown img {
     @apply py-1 px-1.5;
   }
 
