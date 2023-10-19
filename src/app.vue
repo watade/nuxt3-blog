@@ -2,6 +2,9 @@
 useHead({
   bodyAttrs: {
     class: 'background overscroll-none'
+  },
+  htmlAttrs: {
+    class: 'overscroll-none'
   }
 })
 </script>
