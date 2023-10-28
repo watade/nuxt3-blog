@@ -41,4 +41,4 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Copy Files to S3
         run: |
-          aws s3 sync --delete ./src/dist s3://${{ secrets.S3_BUCKET_NAME }}
+          aws s3 sync ./src/dist s3://${{ secrets.S3_BUCKET_NAME }}
