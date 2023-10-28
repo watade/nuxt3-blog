@@ -1,7 +1,10 @@
 <script setup lang="ts">
 useHead({
   bodyAttrs: {
-    class: 'bg-neutral-200'
+    class: 'background overscroll-none'
+  },
+  htmlAttrs: {
+    class: 'overscroll-none'
   }
 })
 </script>

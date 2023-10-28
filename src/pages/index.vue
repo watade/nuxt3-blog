@@ -17,9 +17,6 @@ const { data: posts } = await useAsyncData(
     )
   }
 )
-
-
-
 </script>
 
 <template>
@@ -28,7 +25,7 @@ const { data: posts } = await useAsyncData(
       <NuxtLink :to="`/posts/${post.fields.slug}`">
         <div class="text-xl sm:text-2xl hover:underline">{{ post.fields.title }}</div>
       </NuxtLink>
-      <time v-if="post.fields.publishDate" class="text-sm sm:text-base">{{ $formatDate(post.fields.publishDate) }}</time>
+      <time class="text-sm sm:text-base">{{ $formatDate(post.fields.publishDate) }}</time>
     </article>
   </div>
 </template>

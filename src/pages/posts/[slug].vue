@@ -14,7 +14,7 @@ const { data: post } = await useAsyncData(
   route.params.slug as string,
   async () => {
     const client = $createCtfClient()
-    return await client.withoutUnresolvableLinks.getEntries<TypeMarkdownBlogPostSkeleton>({
+    return await client.getEntries<TypeMarkdownBlogPostSkeleton>({
       content_type: 'markdownBlogPost',
       'fields.slug': route.params.slug as string,
     }).then(
@@ -31,11 +31,11 @@ const { data: post } = await useAsyncData(
     <div class="border-black text-3xl sm:text-4xl font-mono font-semibold pt-5">
       {{ post.fields.title }}
     </div>
-    <div v-if="post.fields.publishDate" class="text-sm sm:text-base font-mono pb-8">
+    <div class="text-sm sm:text-base font-mono pb-8">
       {{ $formatDate(post.fields.publishDate) }}
     </div>
     <div class="markdown">
-      <article v-if="post.fields.body" v-html="marked.parse(post.fields.body)"></article>
+      <article v-html="marked.parse(post.fields.body)"></article>
     </div>
   </div>
 </template>
