@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import { marked } from 'marked'
 import { TypeMarkdownBlogPostSkeleton } from '@/types/contentful'
-
-marked.use({
-  mangle: false,
-  headerIds: false
-});
 
 const route = useRoute()
 const { $createCtfClient } = useNuxtApp()
@@ -35,7 +29,7 @@ const { data: post } = await useAsyncData(
       {{ $formatDate(post.fields.publishDate) }}
     </div>
     <div class="markdown">
-      <article v-html="marked.parse(post.fields.body)"></article>
+      <article v-html="$markdownToHtml(post.fields.body)"></article>
     </div>
   </div>
 </template>
