@@ -12,6 +12,7 @@ export default defineNuxtConfig({
   modules: ["@nuxt/image", "@nuxtjs/tailwindcss"],
   image: {
     contentful: {},
+    domains: ["images.ctfassets.net"],
   },
   postcss: {
     plugins: {
