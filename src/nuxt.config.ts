@@ -9,7 +9,10 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxt/image", "@nuxtjs/tailwindcss"],
+  image: {
+    contentful: {},
+  },
   postcss: {
     plugins: {
       tailwindcss: {},
