@@ -13,6 +13,9 @@ export default defineNuxtConfig({
   image: {
     contentful: {},
     domains: ["images.ctfassets.net"],
+    alias: {
+      ctfassets: "https://images.ctfassets.net",
+    },
   },
   postcss: {
     plugins: {
