@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TypeMarkdownBlogPostSkeleton } from '@/types/contentful'
+import { type TypeMarkdownBlogPostSkeleton } from '@/types/contentful'
 
 const route = useRoute()
 const { $createCtfClient } = useNuxtApp()
