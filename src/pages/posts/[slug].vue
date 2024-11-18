@@ -8,14 +8,11 @@ const { data: post } = await useAsyncData(
   route.params.slug as string,
   async () => {
     const client = $createCtfClient()
-    return await client.getEntries<TypeMarkdownBlogPostSkeleton>({
+    const entries = await client.getEntries<TypeMarkdownBlogPostSkeleton>({
       content_type: 'markdownBlogPost',
       'fields.slug': route.params.slug as string,
-    }).then(
-      (entries) => {
-        return entries.items[0]
-      }
-    )
+    })
+    return entries.items[0]
   }
 )
 </script>

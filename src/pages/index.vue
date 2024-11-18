@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { type TypeMarkdownBlogPostSkeleton } from '@/types/contentful'
+import BlogPost from '@/components/BlogPost.vue'
 
 const { $createCtfClient, $formatDate } = useNuxtApp()
 
@@ -18,12 +19,7 @@ const { data: posts } = await useAsyncData(
 
 <template>
   <div>
-    <article v-for="(post, index) in posts"
-      :class="index == 0 ? 'py-3 sm:py-5 font-mono' : 'py-3 sm:py-5 font-mono border-t  border-black'">
-      <NuxtLink :to="`/posts/${post.fields.slug}`">
-        <div class="text-xl sm:text-2xl hover:underline">{{ post.fields.title }}</div>
-      </NuxtLink>
-      <time class="text-sm sm:text-base">{{ $formatDate(post.fields.publishDate) }}</time>
-    </article>
+    <BlogPost v-for="(post, index) in posts" :key="post.sys.id" :to="`/posts/${post.fields.slug}`"
+      :title="post.fields.title" :publishDate="post.fields.publishDate" :index="index" />
   </div>
 </template>
