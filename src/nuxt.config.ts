@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   typescript: {
     typeCheck: true,
   },
-  modules: ["@nuxt/image", "@nuxtjs/tailwindcss"],
+  modules: ["@nuxt/image", "@nuxtjs/tailwindcss", "@nuxt/eslint"],
   image: {
     contentful: {},
     domains: ["images.ctfassets.net"],
