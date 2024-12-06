@@ -14,7 +14,7 @@
   }
 
   .background {
-    background-color: #e4e0d2;
+    background-color: #dcdad7;
   }
 
   .markdown {
@@ -38,7 +38,7 @@
   }
 
   .markdown a {
-    @apply text-blue-600 font-semibold;
+    @apply text-blue-600 font-semibold no-underline hover:underline;
   }
 
   .markdown strong a {

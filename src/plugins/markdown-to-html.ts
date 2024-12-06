@@ -17,6 +17,7 @@ hljs.registerLanguage('diff', diff);
 export default defineNuxtPlugin(() => {
   return {
     provide: {
+      // highlight code blocks in markdown
       markdownToHtml(markdownStr: string) {
         const md = markdownit({
           highlight: function (str, lang) {
@@ -25,17 +26,29 @@ export default defineNuxtPlugin(() => {
                 return hljs.highlight(str, { language: lang }).value;
               } catch (__) {}
             }
-        
             return ''; // use external default escaping
           }
         });
-        const defaultRender =
-          md.renderer.rules.image ||
+
+        // add new rendering rule for open link in new tab
+        const defaultLinkOpenRender = md.renderer.rules.link_open ||
+        function (tokens, idx, options, env, self) {
+          return self.renderToken(tokens, idx, options);
+        };
+        md.renderer.rules.link_open = function (tokens, idx, options, env, self) {
+          // Add a new `target` and `ref` attribute
+          tokens[idx].attrSet('target', '_blank');
+          tokens[idx].attrSet('rel', 'noopener');
+          return defaultLinkOpenRender(tokens, idx, options, env, self);
+        };
+
+
+        // add new rendering rule for image optimization
+        const defaultImageRender = md.renderer.rules.image ||
           function (tokens, idx, options, env, self) {
             return self.renderToken(tokens, idx, options);
           };
         const img = useImage();
-        // add new rendering rule for image optimization
         md.renderer.rules.image = function (tokens, idx, options, env, self) {
           // original image url
           let originalUrl = tokens[idx].attrGet("src") as string;
@@ -51,8 +64,9 @@ export default defineNuxtPlugin(() => {
           // edit image tags
           tokens[idx].attrSet("src", generatedUrl);
           tokens[idx].attrPush(["loading", "lazy"]);
-          return defaultRender(tokens, idx, options, env, self);
+          return defaultImageRender(tokens, idx, options, env, self);
         };
+
         return md.render(markdownStr);
       },
     },
