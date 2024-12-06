@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { type TypeMarkdownBlogPostSkeleton } from '@/types/contentful'
+import type { TypeMarkdownBlogPostSkeleton } from '@/types/contentful'
 import BlogPost from '@/components/BlogPost.vue'
 
-const { $createCtfClient, $formatDate } = useNuxtApp()
+const { $createCtfClient } = useNuxtApp()
 
 const { data: posts } = await useAsyncData(
   'posts',
@@ -19,7 +19,8 @@ const { data: posts } = await useAsyncData(
 
 <template>
   <div>
-    <BlogPost v-for="(post, index) in posts" :key="post.sys.id" :to="`/posts/${post.fields.slug}`"
-      :title="post.fields.title" :publishDate="post.fields.publishDate" :index="index" />
+    <BlogPost
+v-for="(post, index) in posts" :key="post.sys.id" :to="`/posts/${post.fields.slug}`"
+      :title="post.fields.title" :publish-date="post.fields.publishDate" :index="index" />
   </div>
 </template>

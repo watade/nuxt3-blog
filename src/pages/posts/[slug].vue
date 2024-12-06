@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { type TypeMarkdownBlogPostSkeleton } from '@/types/contentful'
+import type { TypeMarkdownBlogPostSkeleton } from '@/types/contentful'
+import 'highlight.js/styles/github.min.css'
 
 const route = useRoute()
 const { $createCtfClient } = useNuxtApp()
@@ -26,7 +27,7 @@ const { data: post } = await useAsyncData(
       {{ $formatDate(post.fields.publishDate) }}
     </div>
     <div class="markdown">
-      <article v-html="$markdownToHtml(post.fields.body)"></article>
+      <article v-html="$markdownToHtml(post.fields.body)"/>
     </div>
   </div>
 </template>
