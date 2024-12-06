@@ -18,7 +18,7 @@
   }
 
   .markdown {
-    @apply leading-normal break-words;
+    @apply leading-normal break-words text-sm sm:text-base;
   }
 
   .markdown > * + * {
@@ -46,19 +46,19 @@
   }
 
   .markdown h1 {
-    @apply leading-tight border-b border-black text-2xl font-semibold mb-4 mt-6 pb-2;
+    @apply leading-tight border-b border-black text-xl sm:text-2xl font-semibold mb-4 mt-6 pb-2;
   }
 
   .markdown h2 {
-    @apply leading-tight border-b border-black text-xl font-semibold mb-4 mt-6 pb-2;
+    @apply leading-tight border-b border-black text-lg sm:text-xl font-semibold mb-4 mt-6 pb-2;
   }
 
   .markdown h3 {
-    @apply leading-snug text-lg font-semibold mb-4 mt-6;
+    @apply leading-snug text-base sm:text-lg font-semibold mb-4 mt-6;
   }
 
   .markdown h4 {
-    @apply leading-none text-base font-semibold mb-4 mt-6;
+    @apply leading-none text-sm sm:text-base font-semibold mb-4 mt-6;
   }
 
   .markdown h5 {
@@ -70,11 +70,11 @@
   }
 
   .markdown blockquote {
-    @apply text-base border-l-4 border-gray-300 pl-4 pr-4 text-gray-600;
+    @apply text-sm sm:text-base border-l-4 border-gray-300 pl-4 pr-4 text-gray-600;
   }
 
   .markdown code {
-    @apply font-mono text-sm inline bg-gray-200 rounded px-1 py-5;
+    @apply font-mono text-xs sm:text-sm inline bg-gray-100 rounded px-1 py-0.5;
   }
 
   .markdown pre {
@@ -82,15 +82,15 @@
   }
 
   .markdown pre code {
-    @apply block bg-transparent p-0 overflow-visible rounded-none;
+    @apply block bg-transparent p-0 rounded-none overflow-x-auto;
   }
 
   .markdown ul {
-    @apply text-base pl-8 list-disc;
+    @apply text-sm sm:text-base pl-8 list-disc;
   }
 
   .markdown ol {
-    @apply text-base pl-8 list-decimal;
+    @apply text-sm sm:text-base pl-8 list-decimal;
   }
 
   .markdown kbd {

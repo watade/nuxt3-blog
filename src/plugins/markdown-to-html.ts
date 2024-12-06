@@ -1,10 +1,34 @@
-import MarkdownIt from "markdown-it";
+import markdownit from "markdown-it";
+import hljs from 'highlight.js/lib/core';
+import javascript from 'highlight.js/lib/languages/javascript';
+import shell from 'highlight.js/lib/languages/shell';
+import python from 'highlight.js/lib/languages/python';
+import c from 'highlight.js/lib/languages/c';
+import yaml from 'highlight.js/lib/languages/yaml';
+import diff from 'highlight.js/lib/languages/diff';
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('shell', shell);
+hljs.registerLanguage('python', python);
+hljs.registerLanguage('c', c);
+hljs.registerLanguage('yaml', yaml);
+hljs.registerLanguage('diff', diff);
+
 
 export default defineNuxtPlugin(() => {
   return {
     provide: {
       markdownToHtml(markdownStr: string) {
-        const md = MarkdownIt();
+        const md = markdownit({
+          highlight: function (str, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+              try {
+                return hljs.highlight(str, { language: lang }).value;
+              } catch (__) {}
+            }
+        
+            return ''; // use external default escaping
+          }
+        });
         const defaultRender =
           md.renderer.rules.image ||
           function (tokens, idx, options, env, self) {
