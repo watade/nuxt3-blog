@@ -20,7 +20,7 @@ const { data: post } = await useAsyncData(
 
 <template>
   <div v-if="post">
-    <div class="border-black text-3xl sm:text-4xl font-mono font-semibold pt-5">
+    <div class="border-black text-2xl sm:text-4xl font-mono font-semibold pt-5">
       {{ post.fields.title }}
     </div>
     <div class="text-sm sm:text-base font-mono pb-8">

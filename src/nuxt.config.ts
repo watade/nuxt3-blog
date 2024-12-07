@@ -1,15 +1,19 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   ssr: true,
+
   runtimeConfig: {
     ctfSpaceID: "",
     ctfCdaAccessToken: "",
     ctfCpaAccessToken: "",
   },
+
   typescript: {
     typeCheck: true,
   },
+
   modules: ["@nuxt/image", "@nuxtjs/tailwindcss", "@nuxt/eslint"],
+
   image: {
     contentful: {},
     domains: ["images.ctfassets.net"],
@@ -17,11 +21,14 @@ export default defineNuxtConfig({
       ctfassets: "https://images.ctfassets.net",
     },
   },
+
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
+
   css: ["~/assets/css/main.css"],
+  compatibilityDate: "2024-12-07",
 });
