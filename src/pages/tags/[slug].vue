@@ -33,7 +33,7 @@ const { data: posts } = await useAsyncData(
 if (err.value) {
   throw createError({
     statusCode: 404,
-    message: "タグが見つかりませんでした",
+    message: "the page you requested does not exist",
     fatal: true,
   });
 }

@@ -20,7 +20,7 @@ const { data: post, error: err } = await useAsyncData(
 if (err.value) {
   throw createError({
     statusCode: 404,
-    message: "記事が見つかりませんでした",
+    message: "the page you requested does not exist",
     fatal: true,
   });
 }
