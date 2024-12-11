@@ -24,7 +24,7 @@ const { data: tags } = await useAsyncData(
     <div class="flex flex-wrap text-sm sm:text-base font-mono py-2">
       <template v-for="(tag, index) in tags" :key="index">
         <span v-if="index > 0" class="pl-2">|</span>
-        <NuxtLink v-if="tag" :to="'/tags/'+tag.fields.slug" class="pl-2 underline">{{ tag.fields.name }}</NuxtLink>
+        <NuxtLink v-if="tag" :to="'/tags/'+tag.fields.slug" class="pl-2 underline hover:no-underline">{{ tag.fields.name }}</NuxtLink>
       </template>
     </div>
   </div>

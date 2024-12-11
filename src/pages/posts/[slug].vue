@@ -32,10 +32,10 @@ if (err.value) {
     <div class="border-black text-2xl sm:text-4xl font-mono font-semibold pt-5 pb-2">
       {{ post.fields.title }}
     </div>
-    <div v-if="post.fields.tags" class="text-right text-sm sm:text-base font-mono py-2">
+    <div v-if="post.fields.tags" class="flex flex-wrap justify-end text-sm sm:text-base font-mono py-2">
       <template v-for="(tag, index) in post.fields.tags" :key="index">
         <span v-if="index > 0" class="pl-2">|</span>
-        <NuxtLink v-if="tag" :to="'/tags/'+tag.fields.slug" class="pl-2 underline">{{ tag.fields.name }}</NuxtLink>
+        <NuxtLink v-if="tag" :to="'/tags/'+tag.fields.slug" class="pl-2 underline hover:no-underline">{{ tag.fields.name }}</NuxtLink>
       </template>
     </div>
     <div class="text-right text-sm sm:text-base font-mono py2">
