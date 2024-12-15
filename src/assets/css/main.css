@@ -8,7 +8,7 @@
   }
 
   .markdown {
-    @apply leading-normal break-words text-sm sm:text-base;
+    @apply leading-relaxed break-words text-sm sm:text-base;
   }
 
   .markdown > * + * {
@@ -92,15 +92,15 @@
   }
 
   .markdown th {
-    @apply border  border-black py-1 px-2;
+    @apply border border-black py-1 px-2;
   }
 
   .markdown td {
-    @apply border  border-black py-0.5 px-1.5;
+    @apply border border-black py-0.5 px-1.5;
   }
 
   .markdown img {
-    @apply py-1 px-1.5;
+    @apply mx-auto py-3 px-1.5;
   }
 
   /* Override pygments style background color. */
