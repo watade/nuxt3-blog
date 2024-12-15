@@ -58,7 +58,6 @@ export default defineNuxtPlugin(() => {
           }
           // download images and generate src path for images
           const generatedUrl = img(originalUrl, {
-            format: "webp",
             quality: 50,
           });
           // edit image tags
