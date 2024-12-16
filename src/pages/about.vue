@@ -9,6 +9,7 @@
             <li>ビルド・デプロイ: Github Actions</li>
             <li>ホスティング: AWS S3, CloudFront</li>
             <li>デザイン: TailwindCSS, markdown-it</li>
+            <li>IaC: terraform</li>
         </ul>
     </div>
 </template>
